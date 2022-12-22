@@ -1,0 +1,33 @@
+.nav{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-left{
+    height: 50px;
+    margin: 10px;
+}
+
+.nav-right-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.li-link{
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+ .li-link:hover{
+    color: rgb(0,0, 255);
+ }
+ li{
+    margin: 0 10px;
+}
+.homeLogo{
+    height: 100px;
+}
