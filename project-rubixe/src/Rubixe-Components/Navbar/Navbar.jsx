@@ -1,11 +1,19 @@
 import React from 'react'
+import { useState } from 'react'
 import {Link}  from 'react-router-dom'
 import homeLogo from '../../Images/logo.png'
 import './Navbar.css'
 const Navbar = () => {
+  const[scrolled , setscrolled] =useState(false)
+  const scrollToActive=()=>{
+    if(window.scrollY>=75){
+      setscrolled(true);
+    }else{setscrolled(false)}
+  }
+  window.addEventListener("scroll", scrollToActive)
   return (
     <>
-        <nav className='nav'>
+        <nav className={scrolled?"nav-fixer":"nav"}>
           <div className='nav-left'>
           <Link to='/'><img height="200px"src={homeLogo} className='homeLogo' alt="" /></Link>
           </div>

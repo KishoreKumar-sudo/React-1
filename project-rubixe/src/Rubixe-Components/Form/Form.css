@@ -1,0 +1,43 @@
+
+.form-container {
+    border: 2px solid black;
+    width: 80%;
+    margin: 5% 10%;
+    display: flex;
+    border-radius: 8px;
+}
+
+.form-left {
+    margin:5%;
+    margin-right: 0;
+    padding: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-right: 2px solid black;
+    gap:1rem;
+}
+
+.form-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin:5%;
+}
+.input{
+    height: 50px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.h3-text{
+    text-align: center;
+}
+.label{
+    font-weight: 600;
+}
+.btn{
+    background-color: #1d2d60;
+    color: white;
+}

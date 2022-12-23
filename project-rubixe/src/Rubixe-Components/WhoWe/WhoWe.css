@@ -1,0 +1,22 @@
+.who-main{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.who-content{
+    padding: 5%;
+    padding-right: 0;
+    padding-left: 10%;
+    width: 60%;
+}
+.who-img{
+    padding: 5%;
+    width: 40%;
+    height: fit-content;
+}
+.who-img-1{
+    padding-top: 7%;
+    padding-right: 10%;
+    max-width: 100%;
+}
