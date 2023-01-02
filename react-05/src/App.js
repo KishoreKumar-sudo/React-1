@@ -1,19 +1,19 @@
-import { getPosts } from './Api/Axios'
-import { usestate, useEffect } from 'react'
+import Axios, { getPosts } from './Api/Axios'
+import { useState, useEffect } from 'react'
 import SearchBar from './SearchBar'
 import ListPage from './ListPage'
 
 function App() {
-  const [posts, setPosts] = usestate([])
-  const [searchResults, setSearchResults] = usestate([])
+  const [posts, setPosts] = useState([])
+  const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
-    getPosts().then(json => {
+    Axios().then(json => {
       setPosts(json)
       setSearchResults(json)
       return json
     })
-  },)
+  },[])
 
   return (
     <>
