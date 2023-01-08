@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
 import './Registration.css'
 const RegistrationForm = () => {
   const [values, setvalues] = useState({
@@ -16,9 +17,17 @@ const RegistrationForm = () => {
   const [reEnterErr, setReEnterErr] = useState(null)
   const [valid, setValid] = useState(false)
 
+
   let getData = (event) => {
     setvalues({ ...values, [event.target.name]: event.target.value })
   }
+
+  useEffect(() => {
+    if (valid === true) {
+      validateForm()
+    }
+   
+  }, [values])
 
   let validateForm = () => {
     let name = values.name
@@ -110,56 +119,63 @@ const RegistrationForm = () => {
     }
   }
 
-  useEffect(() => {
-    if (valid === true) {
-      validateForm()
-    }
-  }, [values])
+
   let submitHandler = (event) => {
     event.preventDefault()
     setValid(true)
     let k = validateForm()
     if (k === true) {
-      alert("Form Submitted Successfully... Go to Console to view captured data..!!")
+  
+      // alert("Form Submitted Successfully... Go to Console to view captured data..!!")
       console.log(values)
     }
   }
+  
 
   return <>
+  
     <div className="container mt-5">
       <pre>{JSON.stringify(values)}</pre>
       <div className="row">
-        <div className="col-md-6">
-          <form onSubmit={submitHandler}>
-            <div className="card">
-              <div className="card-header text-success">
-                <h3>Registration-Form Validation Using React</h3>
-              </div>
-              <div className="card-body">
-                <div className='form-group'>
-                  <input type="text" placeholder='Name' name='name' className='form-control' onChange={getData} />
-                  <span className='text-danger'>{nameerr}</span>
+        <div className="col-md-5">
+          
+              <form onSubmit={submitHandler}>
+                <div className="card">
+                  <div className="card-header text-success">
+                    <h3>Registration-Form Validation Using React</h3>
+                  </div>
+                  <div className="card-body">
+                    <div className='form-group'>
+                      <input type="text" placeholder='Name' name='name' className='form-control' onChange={getData} />
+                      <span className='text-danger'>{nameerr}</span>
+                    </div>
+                    <div className='form-group'>
+                      <input type="text" placeholder='Email' name='email' className='form-control' onChange={getData} />
+                      <span className='text-danger'>{emailerr}</span>
+                    </div>
+                    <div className='form-group'>
+                      <input type="number" placeholder='Mobile Number' name='mobilenumber' className='form-control' onChange={getData} />
+                      <span className='text-danger'>{mobilenumbererr}</span>
+                    </div>
+                    <div className='form-group'>
+                      <input type="password" placeholder='Password' name='password' className='form-control' onChange={getData} />
+                      <span className='text-danger'>{passworderr}</span>
+                    </div>
+                    <div className='form-group'>
+                      <input type="password" placeholder='Re-Enter Password' name='re_enter' className='form-control' onChange={getData} />
+                      <span className='text-danger'>{reEnterErr}</span>
+                    </div>
+                    {
+                      (nameerr || emailerr || mobilenumbererr || passworderr || reEnterErr) ? <>
+                        <input type="submit" value="Register" className='btn btn-warning' disabled /></> :
+                        <>
+                          <input type="submit" value="Register" className='btn btn-warning' />
+                        </>
+                    }
+                  </div>
                 </div>
-                <div className='form-group'>
-                  <input type="text" placeholder='Email' name='email' className='form-control' onChange={getData} />
-                  <span className='text-danger'>{emailerr}</span>
-                </div>
-                <div className='form-group'>
-                  <input type="number" placeholder='Mobile Number' name='mobilenumber' className='form-control' onChange={getData} />
-                  <span className='text-danger'>{mobilenumbererr}</span>
-                </div>
-                <div className='form-group'>
-                  <input type="password" placeholder='Password' name='password' className='form-control' onChange={getData} />
-                  <span className='text-danger'>{passworderr}</span>
-                </div>
-                <div className='form-group'>
-                  <input type="password" placeholder='Re-Enter Password' name='re_enter' className='form-control' onChange={getData} />
-                  <span className='text-danger'>{reEnterErr}</span>
-                </div>
-                <input type="submit" value="Submit" className='btn btn-warning' />
-              </div>
-            </div>
-          </form>
+              </form>
+         
         </div>
       </div>
     </div>
