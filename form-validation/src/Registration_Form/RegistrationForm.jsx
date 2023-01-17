@@ -19,14 +19,13 @@ const RegistrationForm = () => {
 
 
   let getData = (event) => {
-    setvalues({ ...values, [event.target.name]: event.target.value })
+    setvalues({ ...values, [event.target.name]: event.target.value})
   }
 
   useEffect(() => {
     if (valid === true) {
       validateForm()
     }
-   
   }, [values])
 
   let validateForm = () => {
@@ -125,8 +124,7 @@ const RegistrationForm = () => {
     setValid(true)
     let k = validateForm()
     if (k === true) {
-  
-      // alert("Form Submitted Successfully... Go to Console to view captured data..!!")
+      alert("Form Submitted Successfully... Go to Console to view captured data..!!")
       console.log(values)
     }
   }
