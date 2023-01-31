@@ -4,12 +4,11 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 const User = () => {
   let [products, setProducts] = useState({})
-  
     useEffect(()=>{
-        axios.get("https://dummyjson.com/products1")
+        axios.get("https://dummyjson.com/products")
         .then((response)=>{setProducts(response.data)})
         .catch((error)=>{
-          // console.log(error);
+          console.log(error);
         })
     })
     return <div className="container">
@@ -26,6 +25,10 @@ const User = () => {
                 <h3>{product.id}</h3>
                  <p>{product.description}</p>
                  <h4>{product.rating}</h4>
+                  <h5>{product.stock}</h5>
+                  <h2>{product.brand}</h2>
+                  <h6>{product.category}</h6>
+                  <h3>{product.thumbnail}</h3>
               </div>
             </div>
             })
