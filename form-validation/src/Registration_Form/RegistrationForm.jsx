@@ -35,7 +35,7 @@ const RegistrationForm = () => {
     let password = values.password
     let re_enter = values.re_enter
 
-    //validation for name
+    //validation for Name
     if (name === "") {
       setNameErr("Enter ur name")
     }
